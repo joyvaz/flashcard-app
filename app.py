@@ -60,16 +60,18 @@ def add_card():
     if request.method == 'POST':
         english = request.form.get('english', '').strip()
         deutsch = request.form.get('deutsch', '').strip()
+        sample = request.form.get('sample', '').strip()
         
         # Validation
         if not english or not deutsch:
-            return render_template('add_card.html', error='Both fields are required!')
+            return render_template('add_card.html', error='English and German fields are required!')
         
         flashcards = load_flashcards()
         new_card = {
             'id': get_next_id(flashcards),
             'english': english,
             'deutsch': deutsch,
+            'sample': sample,
             'created_at': datetime.now().isoformat()
         }
         
@@ -92,14 +94,16 @@ def edit_card(card_id):
     if request.method == 'POST':
         english = request.form.get('english', '').strip()
         deutsch = request.form.get('deutsch', '').strip()
+        sample = request.form.get('sample', '').strip()
         
         # Validation
         if not english or not deutsch:
-            return render_template('edit_card.html', card=card, error='Both fields are required!')
+            return render_template('edit_card.html', card=card, error='English and German fields are required!')
         
         # Update card
         card['english'] = english
         card['deutsch'] = deutsch
+        card['sample'] = sample
         
         save_flashcards(flashcards)
         return redirect(url_for('index'))

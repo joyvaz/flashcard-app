@@ -4,30 +4,35 @@
       "id": 1,
       "english": "Hello",
       "deutsch": "Hallo",
+      "sample": "Hallo, wie geht es dir?",
       "created_at": "2024-01-15T10:30:00"
     },
     {
       "id": 2,
       "english": "Goodbye",
       "deutsch": "Auf Wiedersehen",
+      "sample": "Auf Wiedersehen, bis bald!",
       "created_at": "2024-01-15T10:31:00"
     },
     {
       "id": 3,
       "english": "Thank you",
       "deutsch": "Danke",
+      "sample": "Danke dir für deine Hilfe!",
       "created_at": "2024-01-15T10:32:00"
     },
     {
       "id": 4,
       "english": "Please",
       "deutsch": "Bitte",
+      "sample": "Ein Kaffee bitte, danke schön.",
       "created_at": "2024-01-15T10:33:00"
     },
     {
       "id": 5,
       "english": "Water",
       "deutsch": "Wasser",
+      "sample": "Ich trinke gerne kaltes Wasser.",
       "created_at": "2024-01-15T10:34:00"
     }
   ]

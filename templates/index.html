@@ -24,7 +24,7 @@
     .flip-card {
         background-color: transparent;
         width: 100%;
-        height: 300px;
+        min-height: 350px;
         perspective: 1000px;
         margin: 20px 0;
         cursor: pointer;
@@ -33,7 +33,7 @@
     .flip-card-inner {
         position: relative;
         width: 100%;
-        height: 100%;
+        min-height: 350px;
         text-align: center;
         transition: transform 0.6s;
         transform-style: preserve-3d;
@@ -46,7 +46,7 @@
     .flip-card-front, .flip-card-back {
         position: absolute;
         width: 100%;
-        height: 100%;
+        min-height: 350px;
         backface-visibility: hidden;
         display: flex;
         flex-direction: column;
@@ -85,6 +85,17 @@
         line-height: 1.2;
     }
 
+    .flip-card-back .sample {
+        font-size: 1.1em;
+        font-style: italic;
+        margin-top: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        border-left: 3px solid rgba(255, 255, 255, 0.5);
+        line-height: 1.5;
+    }
+
     .flip-hint {
         font-size: 0.9em;
         opacity: 0.7;
@@ -113,6 +124,9 @@
         text-decoration: none;
         border-radius: 8px;
         transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
     }
 
     .nav-buttons a:hover {
@@ -120,9 +134,17 @@
         transform: translateY(-2px);
     }
 
-    .nav-buttons a:disabled {
+    .nav-buttons .disabled {
         background: #ccc;
         cursor: not-allowed;
+        transform: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        color: #666;
+    }
+
+    .nav-buttons .disabled:hover {
+        background: #ccc;
         transform: none;
     }
 
@@ -164,13 +186,20 @@
     }
 
     @media (max-width: 600px) {
-        .flip-card {
-            height: 250px;
+        .flip-card,
+        .flip-card-inner,
+        .flip-card-front,
+        .flip-card-back {
+            min-height: 300px;
         }
 
         .flip-card-front .word,
         .flip-card-back .word {
             font-size: 1.8em;
+        }
+
+        .flip-card-back .sample {
+            font-size: 0.95em;
         }
 
         .controls {
@@ -185,6 +214,7 @@
         }
 
         .nav-buttons a,
+        .nav-buttons .disabled,
         .btn {
             flex: 1;
             text-align: center;
@@ -231,6 +261,9 @@
                     <div class="flip-card-back">
                         <div class="language">Deutsch</div>
                         <div class="word">{{ card.deutsch }}</div>
+                        {% if card.sample %}
+                            <div class="sample">{{ card.sample }}</div>
+                        {% endif %}
                         <div class="flip-hint">Click to see English</div>
                     </div>
                 </div>
@@ -241,13 +274,13 @@
                     {% if index > 0 %}
                         <a href="/?index={{ index - 1 }}">← Previous</a>
                     {% else %}
-                        <span class="nav-buttons" style="opacity: 0.5; cursor: not-allowed;">← Previous</span>
+                        <span class="disabled">← Previous</span>
                     {% endif %}
 
                     {% if index < total - 1 %}
                         <a href="/?index={{ index + 1 }}">Next →</a>
                     {% else %}
-                        <span class="nav-buttons" style="opacity: 0.5; cursor: not-allowed;">Next →</span>
+                        <span class="disabled">Next →</span>
                     {% endif %}
                 </div>
 
