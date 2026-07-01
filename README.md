@@ -9,6 +9,7 @@ A simple, interactive flashcard application built with Python. Learn English wor
 - 🎯 **Flashcard Management**: Add, edit, and delete flashcards
 - 🔄 **Flip Animation**: Click to flip cards between English and German
 - 💬 **Sample Sentences**: See German words used in context with example sentences
+- 🔊 **German Pronunciation Audio**: Click speaker icon to hear native German pronunciation of each word
 - 💾 **JSON Database**: All flashcards stored separately by category in JSON format
 - 🎨 **Simple Interface**: Clean and intuitive web-based UI
 

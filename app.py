@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify, send_file
 import json
 import os
 from datetime import datetime
+from gtts import gTTS
+import io
 
 app = Flask(__name__)
 
@@ -9,6 +11,7 @@ app = Flask(__name__)
 DATA_DIR = 'data'
 NOUNS_DB = os.path.join(DATA_DIR, 'nouns.json')
 VERBS_DB = os.path.join(DATA_DIR, 'verbs.json')
+AUDIO_DIR = 'static/audio'
 
 def load_flashcards(category='verbs'):
     """Load flashcards from JSON file based on category"""
@@ -43,6 +46,55 @@ def get_next_id(flashcards):
         return 1
     return max(card['id'] for card in flashcards) + 1
 
+def generate_audio(text, card_id, category):
+    """Generate German audio for a flashcard and save it"""
+    try:
+        # Ensure audio directory exists
+        os.makedirs(AUDIO_DIR, exist_ok=True)
+        
+        # Create filename: category_cardid.mp3
+        audio_filename = f"{category}_{card_id}.mp3"
+        audio_path = os.path.join(AUDIO_DIR, audio_filename)
+        
+        # Generate audio using gTTS
+        tts = gTTS(text=text, lang='de', slow=False)
+        tts.save(audio_path)
+        
+        return audio_filename
+    except Exception as e:
+        print(f"Error generating audio: {e}")
+        return None
+
+def get_or_generate_audio(text, card_id, category):
+    """Get audio file or generate it if it doesn't exist"""
+    try:
+        # Ensure audio directory exists
+        os.makedirs(AUDIO_DIR, exist_ok=True)
+        
+        audio_filename = f"{category}_{card_id}.mp3"
+        audio_path = os.path.join(AUDIO_DIR, audio_filename)
+        
+        # If audio file doesn't exist, generate it
+        if not os.path.exists(audio_path):
+            tts = gTTS(text=text, lang='de', slow=False)
+            tts.save(audio_path)
+        
+        return audio_path
+    except Exception as e:
+        print(f"Error generating audio: {e}")
+        return None
+
+def delete_audio(card_id, category):
+    """Delete audio file for a flashcard"""
+    try:
+        audio_filename = f"{category}_{card_id}.mp3"
+        audio_path = os.path.join(AUDIO_DIR, audio_filename)
+        
+        if os.path.exists(audio_path):
+            os.remove(audio_path)
+    except Exception as e:
+        print(f"Error deleting audio: {e}")
+
 @app.route('/')
 def index():
     """Main page - display flashcards"""
@@ -65,6 +117,28 @@ def index():
                          total=total_cards,
                          category=category)
 
+@app.route('/audio/<category>/<int:card_id>')
+def get_audio(category, card_id):
+    """Get or generate audio for a flashcard"""
+    try:
+        # Get the flashcard
+        flashcards = load_flashcards(category)
+        card = next((c for c in flashcards if c['id'] == card_id), None)
+        
+        if not card:
+            return "Card not found", 404
+        
+        # Get or generate audio
+        audio_path = get_or_generate_audio(card['deutsch'], card_id, category)
+        
+        if not audio_path or not os.path.exists(audio_path):
+            return "Could not generate audio", 500
+        
+        return send_file(audio_path, mimetype='audio/mpeg')
+    except Exception as e:
+        print(f"Error serving audio: {e}")
+        return f"Error: {str(e)}", 500
+
 @app.route('/add', methods=['GET', 'POST'])
 def add_card():
     """Add a new flashcard"""
@@ -81,16 +155,26 @@ def add_card():
             return render_template('add_card.html', error='English and German fields are required!', category=category)
         
         flashcards = load_flashcards(category)
+        card_id = get_next_id(flashcards)
+        
         new_card = {
-            'id': get_next_id(flashcards),
+            'id': card_id,
             'english': english,
             'deutsch': deutsch,
             'sample': sample,
+            'audio': f"{category}_{card_id}.mp3",
             'created_at': datetime.now().isoformat()
         }
         
         flashcards.append(new_card)
         save_flashcards(flashcards, category)
+        
+        # Generate audio in background (will be created when user clicks play)
+        # Or we can generate it now
+        try:
+            generate_audio(deutsch, card_id, category)
+        except Exception as e:
+            print(f"Warning: Could not pre-generate audio: {e}")
         
         return redirect(url_for('index', category=category))
     
@@ -116,6 +200,16 @@ def edit_card(card_id):
         if not english or not deutsch:
             return render_template('edit_card.html', card=card, error='English and German fields are required!', category=category)
         
+        # If German word changed, delete old audio so new one will be generated
+        if deutsch != card['deutsch']:
+            delete_audio(card_id, category)
+            card['audio'] = f"{category}_{card_id}.mp3"
+            # Try to generate new audio
+            try:
+                generate_audio(deutsch, card_id, category)
+            except Exception as e:
+                print(f"Warning: Could not generate audio: {e}")
+        
         # Update card
         card['english'] = english
         card['deutsch'] = deutsch
@@ -131,6 +225,10 @@ def delete_card(card_id):
     """Delete a flashcard"""
     category = request.args.get('category', 'verbs')
     flashcards = load_flashcards(category)
+    
+    # Delete audio file if it exists
+    delete_audio(card_id, category)
+    
     flashcards = [c for c in flashcards if c['id'] != card_id]
     save_flashcards(flashcards, category)
     
