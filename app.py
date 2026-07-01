@@ -6,12 +6,15 @@ from gtts import gTTS
 import io
 
 app = Flask(__name__)
+app.secret_key = 'your-secret-key-for-sessions'
 
 # Path to JSON database
 DATA_DIR = 'data'
 NOUNS_DB = os.path.join(DATA_DIR, 'nouns.json')
 VERBS_DB = os.path.join(DATA_DIR, 'verbs.json')
 AUDIO_DIR = 'static/audio'
+PROGRESS_DIR = 'progress'
+PROGRESS_FILE = os.path.join(PROGRESS_DIR, 'progress.json')
 
 def load_flashcards(category='verbs'):
     """Load flashcards from JSON file based on category"""
@@ -45,6 +48,35 @@ def get_next_id(flashcards):
     if not flashcards:
         return 1
     return max(card['id'] for card in flashcards) + 1
+
+def load_progress():
+    """Load user progress from JSON file"""
+    if not os.path.exists(PROGRESS_FILE):
+        return {}
+    
+    try:
+        with open(PROGRESS_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            return data
+    except (json.JSONDecodeError, FileNotFoundError):
+        return {}
+
+def save_progress(progress):
+    """Save user progress to JSON file"""
+    os.makedirs(PROGRESS_DIR, exist_ok=True)
+    with open(PROGRESS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(progress, f, indent=2)
+
+def get_user_progress(category):
+    """Get the current card index for a category"""
+    progress = load_progress()
+    return progress.get(category, 0)
+
+def set_user_progress(category, index):
+    """Save the current card index for a category"""
+    progress = load_progress()
+    progress[category] = index
+    save_progress(progress)
 
 def generate_audio(text, card_id, category):
     """Generate German audio for a flashcard and save it"""
@@ -100,7 +132,9 @@ def index():
     """Main page - display flashcards"""
     category = request.args.get('category', 'verbs')
     flashcards = load_flashcards(category)
-    current_index = request.args.get('index', 0, type=int)
+    
+    # Get saved progress for this category
+    current_index = get_user_progress(category)
     
     # Ensure current_index is valid
     if current_index < 0:
@@ -116,6 +150,21 @@ def index():
                          index=current_index, 
                          total=total_cards,
                          category=category)
+
+@app.route('/set-progress', methods=['POST'])
+def set_progress():
+    """Set user progress (called via AJAX)"""
+    try:
+        data = request.json
+        category = data.get('category', 'verbs')
+        index = data.get('index', 0)
+        
+        set_user_progress(category, index)
+        
+        return jsonify({'status': 'success'})
+    except Exception as e:
+        print(f"Error setting progress: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
 
 @app.route('/audio/<category>/<int:card_id>')
 def get_audio(category, card_id):

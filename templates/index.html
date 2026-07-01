@@ -74,6 +74,22 @@
         font-size: 1.2em;
     }
 
+    /* Progress Bar */
+    .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: #e0e0e0;
+        border-radius: 3px;
+        margin: 10px 0;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        transition: width 0.3s ease;
+    }
+
     /* Flip Card Animation */
     .flip-card {
         background-color: transparent;
@@ -375,6 +391,25 @@
             });
     }
 
+    function saveProgress(category, index) {
+        // Save progress to backend
+        fetch('/set-progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                category: category,
+                index: index
+            })
+        }).catch(err => console.error('Error saving progress:', err));
+    }
+
+    function navigateToCard(index, category) {
+        saveProgress(category, index);
+        window.location.href = `/?index=${index}&category=${category}`;
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         const card = document.querySelector('.flip-card');
         if (card) {
@@ -411,6 +446,10 @@
         <div class="card-counter">
             Card <strong>{{ index + 1 }}</strong> of <strong>{{ total }}</strong>
         </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: {{ (index + 1) / total * 100 }}%"></div>
+        </div>
 
         {% if card %}
             <div class="flip-card">
@@ -437,13 +476,13 @@
             <div class="controls">
                 <div class="nav-buttons">
                     {% if index > 0 %}
-                        <a href="/?index={{ index - 1 }}&category={{ category }}">← Previous</a>
+                        <a onclick="navigateToCard({{ index - 1 }}, '{{ category }}')">← Previous</a>
                     {% else %}
                         <span class="disabled">← Previous</span>
                     {% endif %}
 
                     {% if index < total - 1 %}
-                        <a href="/?index={{ index + 1 }}&category={{ category }}">Next →</a>
+                        <a onclick="navigateToCard({{ index + 1 }}, '{{ category }}')">Next →</a>
                     {% else %}
                         <span class="disabled">Next →</span>
                     {% endif %}
