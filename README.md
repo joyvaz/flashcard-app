@@ -1,50 +1,100 @@
-# flashcard-app
-# Flashcard App - English to German
+# Flashcard App
 
-A simple, interactive flashcard application built with Python. Learn English words and their German translations with flip animations.
+A small Flask-based flashcard application for practicing English-to-German vocabulary. The app lets you browse flashcards, flip between English and German, listen to generated German pronunciation audio, and manage your cards and progress.
 
 ## Features
 
-- 📚 **Category Support**: Learn from Verbs and Nouns (with easy extensibility for more categories)
-- 🎯 **Flashcard Management**: Add, edit, and delete flashcards
-- 🔄 **Flip Animation**: Click to flip cards between English and German
-- 💬 **Sample Sentences**: See German words used in context with example sentences
-- 🔊 **German Pronunciation Audio**: Click speaker icon to hear native German pronunciation of each word
-- 📊 **Progress Tracking**: Automatically saves your current position for each category - pick up where you left off!
-- 📈 **Progress Bar**: Visual indicator showing your position in the deck
-- 💾 **JSON Database**: All flashcards stored separately by category in JSON format
-- 🎨 **Simple Interface**: Clean and intuitive web-based UI
+- 📚 Supports multiple decks, including verbs and nouns
+- 🔄 Flip cards to reveal the translation
+- 🎧 Play German audio using gTTS
+- ➕ Add, edit, and delete flashcards
+- 📈 Save your current position per category so you can resume where you left off
+- 💾 Store card data and progress in JSON files
+- 🌐 Use a simple web interface with Flask templates
 
 ## Project Structure
 
-└── flashcard-app/
-    ├── README.md
-    ├── requirements.txt
-    ├── app.py
-    ├── data/
-    │   ├── nouns.json
-    │   └── verbs.json
-    └── templates/
-        ├── base.html
-        ├── index.html
-        ├── add_card.html
-        └── edit_card.html
+```text
+flashcard-app/
+├── app.py
+├── routes.py
+├── services.py
+├── requirements.txt
+├── README.md
+├── data/
+│   ├── nouns.json
+│   └── verbs.json
+├── progress/
+│   └── progress.json
+├── static/
+│   └── audio/
+└── templates/
+    ├── add_card.html
+    ├── base.html
+    ├── edit_card.html
+    └── index.html
+```
 
+## Requirements
 
+- Python 3.9+
+- Flask
+- gTTS
 
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/joyvaz/flashcard-app.git
 cd flashcard-app
 ```
-2. Install dependencies:
+
+2. Create and activate a virtual environment (recommended):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 ```
+
+3. Install the dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
-3. Run the application:
-```
+
+4. Start the app:
+
+```bash
 python app.py
 ```
-4. Open your browser and visit http://localhost:5000
+
+5. Open your browser at http://127.0.0.1:5000
+
+## Usage
+
+- Open the home page to begin reviewing cards.
+- Use the navigation controls to move through the current deck.
+- Click the card to flip between English and German.
+- Use the speaker icon to play German pronunciation audio.
+- Add new cards from the Add Card page.
+- Edit or delete cards from the card management options.
+
+## Data and Persistence
+
+- Flashcards are stored in JSON files under the data directory.
+- Progress is stored in progress/progress.json and is saved per category.
+- Audio files are generated on demand and cached in static/audio.
+
+## API
+
+The app also exposes a simple JSON endpoint for retrieving cards:
+
+```text
+GET /api/cards?category=verbs
+```
+
+## Notes
+
+- Audio generation depends on gTTS and may require network access the first time a sound is created.
+- You can add more categories by extending the data files and matching routes in the app.
