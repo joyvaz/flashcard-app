@@ -5,13 +5,28 @@ A simple, interactive flashcard application built with Python. Learn English wor
 
 ## Features
 
-- 📚 **Flashcard Management**: Add, edit, and delete flashcards
+- 📚 **Category Support**: Learn from Verbs and Nouns (with easy extensibility for more categories)
+- 🎯 **Flashcard Management**: Add, edit, and delete flashcards
 - 🔄 **Flip Animation**: Click to flip cards between English and German
-- 💾 **JSON Database**: All flashcards stored locally in JSON format
-- 🎯 **Simple Interface**: Clean and intuitive web-based UI
+- 💬 **Sample Sentences**: See German words used in context with example sentences
+- 💾 **JSON Database**: All flashcards stored separately by category in JSON format
+- 🎨 **Simple Interface**: Clean and intuitive web-based UI
 
 ## Project Structure
-flashcard-app/ ├── README.md ├── requirements.txt ├── app.py # Main Flask application ├── flashcards.json # Database with flashcards └── templates/ ├── base.html # Base template with styling ├── index.html # Main flashcard view ├── add_card.html # Add new flashcard form └── edit_card.html # Edit flashcard form
+
+└── flashcard-app/
+    ├── README.md
+    ├── requirements.txt
+    ├── app.py
+    ├── data/
+    │   ├── nouns.json
+    │   └── verbs.json
+    └── templates/
+        ├── base.html
+        ├── index.html
+        ├── add_card.html
+        └── edit_card.html
+
 
 
 ## Installation

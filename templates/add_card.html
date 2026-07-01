@@ -40,6 +40,22 @@
         font-style: italic;
     }
 
+    .form-group select {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 1em;
+        font-family: inherit;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-group select:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+    }
+
     .button-group {
         display: flex;
         gap: 10px;
@@ -104,6 +120,17 @@
 
         <form method="POST">
             <div class="form-group">
+                <label for="category">
+                    <span>📚</span>
+                    Category
+                </label>
+                <select id="category" name="category" required>
+                    <option value="verbs" {% if category == 'verbs' %}selected{% endif %}>Verbs</option>
+                    <option value="nouns" {% if category == 'nouns' %}selected{% endif %}>Nouns</option>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="english">
                     <span>🇬🇧</span>
                     English Word
@@ -130,7 +157,7 @@
 
             <div class="button-group">
                 <button type="submit">✅ Create Flashcard</button>
-                <a href="/">Cancel</a>
+                <a href="/?category={{ category }}">Cancel</a>
             </div>
         </form>
     </div>

@@ -6,26 +6,35 @@ from datetime import datetime
 app = Flask(__name__)
 
 # Path to JSON database
-DB_PATH = 'flashcards.json'
+DATA_DIR = 'data'
+NOUNS_DB = os.path.join(DATA_DIR, 'nouns.json')
+VERBS_DB = os.path.join(DATA_DIR, 'verbs.json')
 
-def load_flashcards():
-    """Load flashcards from JSON file"""
-    if not os.path.exists(DB_PATH):
+def load_flashcards(category='verbs'):
+    """Load flashcards from JSON file based on category"""
+    db_path = VERBS_DB if category == 'verbs' else NOUNS_DB
+    
+    if not os.path.exists(db_path):
         # Create empty database if it doesn't exist
-        save_flashcards([])
+        save_flashcards([], category)
         return []
     
     try:
-        with open(DB_PATH, 'r', encoding='utf-8') as f:
+        with open(db_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
             return data.get('flashcards', [])
     except (json.JSONDecodeError, FileNotFoundError):
         return []
 
-def save_flashcards(flashcards):
-    """Save flashcards to JSON file"""
+def save_flashcards(flashcards, category='verbs'):
+    """Save flashcards to JSON file based on category"""
+    db_path = VERBS_DB if category == 'verbs' else NOUNS_DB
+    
+    # Ensure data directory exists
+    os.makedirs(DATA_DIR, exist_ok=True)
+    
     data = {'flashcards': flashcards}
-    with open(DB_PATH, 'w', encoding='utf-8') as f:
+    with open(db_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 def get_next_id(flashcards):
@@ -37,7 +46,8 @@ def get_next_id(flashcards):
 @app.route('/')
 def index():
     """Main page - display flashcards"""
-    flashcards = load_flashcards()
+    category = request.args.get('category', 'verbs')
+    flashcards = load_flashcards(category)
     current_index = request.args.get('index', 0, type=int)
     
     # Ensure current_index is valid
@@ -52,21 +62,25 @@ def index():
     return render_template('index.html', 
                          card=current_card, 
                          index=current_index, 
-                         total=total_cards)
+                         total=total_cards,
+                         category=category)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add_card():
     """Add a new flashcard"""
+    category = request.args.get('category', 'verbs')
+    
     if request.method == 'POST':
         english = request.form.get('english', '').strip()
         deutsch = request.form.get('deutsch', '').strip()
         sample = request.form.get('sample', '').strip()
+        category = request.form.get('category', 'verbs')
         
         # Validation
         if not english or not deutsch:
-            return render_template('add_card.html', error='English and German fields are required!')
+            return render_template('add_card.html', error='English and German fields are required!', category=category)
         
-        flashcards = load_flashcards()
+        flashcards = load_flashcards(category)
         new_card = {
             'id': get_next_id(flashcards),
             'english': english,
@@ -76,53 +90,57 @@ def add_card():
         }
         
         flashcards.append(new_card)
-        save_flashcards(flashcards)
+        save_flashcards(flashcards, category)
         
-        return redirect(url_for('index'))
+        return redirect(url_for('index', category=category))
     
-    return render_template('add_card.html')
+    return render_template('add_card.html', category=category)
 
 @app.route('/edit/<int:card_id>', methods=['GET', 'POST'])
 def edit_card(card_id):
     """Edit an existing flashcard"""
-    flashcards = load_flashcards()
+    category = request.args.get('category', 'verbs')
+    flashcards = load_flashcards(category)
     card = next((c for c in flashcards if c['id'] == card_id), None)
     
     if not card:
-        return redirect(url_for('index'))
+        return redirect(url_for('index', category=category))
     
     if request.method == 'POST':
         english = request.form.get('english', '').strip()
         deutsch = request.form.get('deutsch', '').strip()
         sample = request.form.get('sample', '').strip()
+        category = request.form.get('category', 'verbs')
         
         # Validation
         if not english or not deutsch:
-            return render_template('edit_card.html', card=card, error='English and German fields are required!')
+            return render_template('edit_card.html', card=card, error='English and German fields are required!', category=category)
         
         # Update card
         card['english'] = english
         card['deutsch'] = deutsch
         card['sample'] = sample
         
-        save_flashcards(flashcards)
-        return redirect(url_for('index'))
+        save_flashcards(flashcards, category)
+        return redirect(url_for('index', category=category))
     
-    return render_template('edit_card.html', card=card)
+    return render_template('edit_card.html', card=card, category=category)
 
 @app.route('/delete/<int:card_id>')
 def delete_card(card_id):
     """Delete a flashcard"""
-    flashcards = load_flashcards()
+    category = request.args.get('category', 'verbs')
+    flashcards = load_flashcards(category)
     flashcards = [c for c in flashcards if c['id'] != card_id]
-    save_flashcards(flashcards)
+    save_flashcards(flashcards, category)
     
-    return redirect(url_for('index'))
+    return redirect(url_for('index', category=category))
 
 @app.route('/api/cards')
 def get_cards_api():
     """API endpoint to get all flashcards"""
-    flashcards = load_flashcards()
+    category = request.args.get('category', 'verbs')
+    flashcards = load_flashcards(category)
     return jsonify({'flashcards': flashcards})
 
 if __name__ == '__main__':
