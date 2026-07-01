@@ -1,0 +1,116 @@
+{
+  "flashcards": [
+    {
+      "id": 1,
+      "english": "through",
+      "deutsch": "durch",
+      "sample": "Accusative : Wir gehen durch den Park. (We are walking through the park.)",
+      "audio": "prepositions_1.mp3",
+      "created_at": "2026-07-01T18:29:28"
+    },
+    {
+      "id": 2,
+      "english": "for",
+      "deutsch": "für",
+      "sample": "Accusative : Das Geschenk ist für dich. (The gift is for you.)",
+      "audio": "prepositions_2.mp3",
+      "created_at": "2026-07-01T18:29:29"
+    },
+    {
+      "id": 3,
+      "english": "against",
+      "deutsch": "gegen",
+      "sample": "Accusative : Er fährt gegen den Baum. (He drives against the tree.)",
+      "audio": "prepositions_3.mp3",
+      "created_at": "2026-07-01T18:29:30"
+    },
+    {
+      "id": 4,
+      "english": "without",
+      "deutsch": "ohne",
+      "sample": "Accusative : Ich trinke Kaffee ohne Zucker. (I drink coffee without sugar.)",
+      "audio": "prepositions_4.mp3",
+      "created_at": "2026-07-01T18:29:31"
+    },
+    {
+      "id": 5,
+      "english": "around / at (time)",
+      "deutsch": "um",
+      "sample": "Accusative : Wir treffen uns um acht Uhr. (We are meeting at eight o'clock.)",
+      "audio": "prepositions_5.mp3",
+      "created_at": "2026-07-01T18:29:32"
+    },
+    {
+      "id": 6,
+      "english": "from / out of",
+      "deutsch": "aus",
+      "sample": "Dative : Er kommt aus dem Haus. (He is coming out of the house.)",
+      "audio": "prepositions_6.mp3",
+      "created_at": "2026-07-01T18:29:33"
+    },
+    {
+      "id": 7,
+      "english": "except for / besides",
+      "deutsch": "außer",
+      "sample": "Dative : Alle sind hier außer meinem Bruder. (Everyone is here except for my brother.)",
+      "audio": "prepositions_7.mp3",
+      "created_at": "2026-07-01T18:29:34"
+    },
+    {
+      "id": 8,
+      "english": "at / near / next to",
+      "deutsch": "bei",
+      "sample": "Dative : Ich wohne bei meinen Eltern. (I live with my parents.)",
+      "audio": "prepositions_8.mp3",
+      "created_at": "2026-07-01T18:29:35"
+    },
+    {
+      "id": 9,
+      "english": "with / by",
+      "deutsch": "mit",
+      "sample": "Dative : Sie fährt mit dem Fahrrad. (She rides by bicycle.)",
+      "audio": "prepositions_9.mp3",
+      "created_at": "2026-07-01T18:29:36"
+    },
+    {
+      "id": 10,
+      "english": "after / to (cities/countries)",
+      "deutsch": "nach",
+      "sample": "Dative : Nach dem Essen gehen wir spazieren. (After eating, we go for a walk.)",
+      "audio": "prepositions_10.mp3",
+      "created_at": "2026-07-01T18:29:37"
+    },
+    {
+      "id": 11,
+      "english": "since / for (time)",
+      "deutsch": "seit",
+      "sample": "Dative : Ich lerne seit einem Jahr Deutsch. (I have been learning German for a year.)",
+      "audio": "prepositions_11.mp3",
+      "created_at": "2026-07-01T18:29:38"
+    },
+    {
+      "id": 12,
+      "english": "from / of / off",
+      "deutsch": "von",
+      "sample": "Dative : Das ist ein Geschenk von meiner Schwester. (That is a gift from my sister.)",
+      "audio": "prepositions_12.mp3",
+      "created_at": "2026-07-01T18:29:39"
+    },
+    {
+      "id": 13,
+      "english": "to / at / towards",
+      "deutsch": "zu",
+      "sample": "Dative : Ich gehe morgen zum Arzt. (I am going to the doctor tomorrow.)",
+      "audio": "prepositions_13.mp3",
+      "created_at": "2026-07-01T18:29:40"
+    },
+    {
+      "id": 14,
+      "english": "opposite",
+      "deutsch": "gegenüber",
+      "sample": "Dative : Die Bank liegt gegenüber dem Bahnhof. (The bank is located opposite the train station.)",
+      "audio": "prepositions_14.mp3",
+      "created_at": "2026-07-01T18:29:41"
+    }
+  ]
+}

@@ -8,6 +8,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 NOUNS_DB = os.path.join(DATA_DIR, 'nouns.json')
 VERBS_DB = os.path.join(DATA_DIR, 'verbs.json')
+PREPOSITIONS_DB = os.path.join(DATA_DIR, 'prepositions.json')
+PHRASES_DB = os.path.join(DATA_DIR, 'phrases.json')
 AUDIO_DIR = os.path.join(BASE_DIR, 'static', 'audio')
 PROGRESS_DIR = os.path.join(BASE_DIR, 'progress')
 PROGRESS_FILE = os.path.join(PROGRESS_DIR, 'progress.json')
@@ -15,7 +17,7 @@ PROGRESS_FILE = os.path.join(PROGRESS_DIR, 'progress.json')
 
 def load_flashcards(category='verbs'):
     """Load flashcards from JSON file based on category."""
-    db_path = VERBS_DB if category == 'verbs' else NOUNS_DB
+    db_path = VERBS_DB if category == 'verbs' else NOUNS_DB if category == 'nouns' else PREPOSITIONS_DB if category == 'prepositions' else PHRASES_DB
 
     if not os.path.exists(db_path):
         save_flashcards([], category)
@@ -31,7 +33,7 @@ def load_flashcards(category='verbs'):
 
 def save_flashcards(flashcards, category='verbs'):
     """Save flashcards to JSON file based on category."""
-    db_path = VERBS_DB if category == 'verbs' else NOUNS_DB
+    db_path = VERBS_DB if category == 'verbs' else NOUNS_DB if category == 'nouns' else PREPOSITIONS_DB if category == 'prepositions' else PHRASES_DB
 
     os.makedirs(DATA_DIR, exist_ok=True)
 
