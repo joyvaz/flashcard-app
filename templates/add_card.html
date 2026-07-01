@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Flashcard{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .form-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .form-section {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 12px;
+        border-left: 4px solid #667eea;
+    }
+
+    .form-section h2 {
+        color: #333;
+        margin-bottom: 25px;
+        font-size: 1.5em;
+    }
+
+    .form-group label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .form-group label span {
+        margin-right: 8px;
+        font-size: 1.2em;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 30px;
+    }
+
+    .button-group button,
+    .button-group a {
+        flex: 1;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .button-group button {
+        background: #667eea;
+        color: white;
+    }
+
+    .button-group button:hover {
+        background: #764ba2;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .button-group a {
+        background: #6c757d;
+        color: white;
+    }
+
+    .button-group a:hover {
+        background: #5a6268;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+        .form-section {
+            padding: 20px;
+        }
+
+        .button-group {
+            flex-direction: column;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <div class="form-section">
+        <h2>➕ Add New Flashcard</h2>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="english">
+                    <span>🇬🇧</span>
+                    English Word
+                </label>
+                <input type="text" id="english" name="english" placeholder="e.g., Apple" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="deutsch">
+                    <span>🇩🇪</span>
+                    German Translation
+                </label>
+                <input type="text" id="deutsch" name="deutsch" placeholder="e.g., Apfel" required>
+            </div>
+
+            <div class="button-group">
+                <button type="submit">✅ Create Flashcard</button>
+                <a href="/">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
