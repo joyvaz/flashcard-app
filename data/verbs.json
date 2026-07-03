@@ -28,7 +28,7 @@
     {"id": 26, "english": "To live (be alive)", "deutsch": "leben", "sample": "Wir leben gesund.", "audio": "verbs_26.mp3", "created_at": "2026-07-01T12:00:26"},
     {"id": 27, "english": "To reside / dwell", "deutsch": "wohnen", "sample": "Ich wohne in Hamburg.", "audio": "verbs_27.mp3", "created_at": "2026-07-01T12:00:27"},
     {"id": 28, "english": "To work", "deutsch": "arbeiten", "sample": "Er arbeitet im Büro.", "audio": "verbs_28.mp3", "created_at": "2026-07-01T12:00:28"},
-    {"id": 29, "english": "To learn / study", "deutsch": "lernen", "sample": "Sie lernt Spanisch.", "audio": "verbs_29.mp3", "created_at": "2026-07-01T12:00:29"},
+    {"id": 29, "english": "To learn / study", "deutsch": "lernen", "sample": "Sie lernen Deutsch.", "audio": "verbs_29.mp3", "created_at": "2026-07-01T12:00:29"},
     {"id": 30, "english": "To teach", "deutsch": "lehren", "sample": "Der Professor lehrt Physik.", "audio": "verbs_30.mp3", "created_at": "2026-07-01T12:00:30"},
     {"id": 31, "english": "To understand", "deutsch": "verstehen", "sample": "Ich verstehe den Satz nicht.", "audio": "verbs_31.mp3", "created_at": "2026-07-01T12:00:31"},
     {"id": 32, "english": "To know (facts)", "deutsch": "wissen", "sample": "Ich weiß es nicht.", "audio": "verbs_32.mp3", "created_at": "2026-07-01T12:00:32"},

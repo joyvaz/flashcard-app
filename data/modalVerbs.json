@@ -1,0 +1,60 @@
+{
+  "flashcards": [
+    {
+      "id": 1,
+      "english": "can / to be able to",
+      "deutsch": "können",
+      "sample": "Modal : Ich kann Deutsch sprechen. (I can speak German.)",
+      "audio": "modalverben_1.mp3",
+      "created_at": "2026-07-03T16:36:20"
+    },
+    {
+      "id": 2,
+      "english": "must / to have to",
+      "deutsch": "müssen",
+      "sample": "Modal : Er muss heute arbeiten. (He has to work today.)",
+      "audio": "modalverben_2.mp3",
+      "created_at": "2026-07-03T16:36:20"
+    },
+    {
+      "id": 3,
+      "english": "to want to / intend to",
+      "deutsch": "wollen",
+      "sample": "Modal : Wir wollen ein Eis kaufen. (We want to buy an ice cream.)",
+      "audio": "modalverben_3.mp3",
+      "created_at": "2026-07-03T16:36:20"
+    },
+    {
+      "id": 4,
+      "english": "would like to",
+      "deutsch": "möchten",
+      "sample": "Modal : Ich möchte einen Kaffee trinken. (I would like to drink a coffee.)",
+      "audio": "modalverben_4.mp3",
+      "created_at": "2026-07-03T16:36:20"
+    },
+    {
+      "id": 5,
+      "english": "may / to be allowed to",
+      "deutsch": "dürfen",
+      "sample": "Modal : Hier darf man nicht parken. (You are not allowed to park here.)",
+      "audio": "modalverben_5.mp3",
+      "created_at": "2026-07-03T16:36:20"
+    },
+    {
+      "id": 6,
+      "english": "should / ought to",
+      "deutsch": "sollen",
+      "sample": "Modal : Du sollst zum Arzt gehen. (You should go to the doctor.)",
+      "audio": "modalverben_6.mp3",
+      "created_at": "2026-07-03T16:36:20"
+    },
+    {
+      "id": 7,
+      "english": "to like",
+      "deutsch": "mögen",
+      "sample": "Modal : Ich mag keine Tomaten. (I do not like tomatoes.)",
+      "audio": "modalverben_7.mp3",
+      "created_at": "2026-07-03T16:36:20"
+    }
+  ]
+}

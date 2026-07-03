@@ -1,0 +1,108 @@
+{
+  "flashcards": [
+    {
+      "id": 1,
+      "english": "what",
+      "deutsch": "was",
+      "sample": "Question : Was ist das? (What is that?)",
+      "audio": "w-fragen_1.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 2,
+      "english": "who",
+      "deutsch": "wer",
+      "sample": "Question : Wer bist du? (Who are you?)",
+      "audio": "w-fragen_2.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 3,
+      "english": "where",
+      "deutsch": "wo",
+      "sample": "Question : Wo wohnst du? (Where do you live?)",
+      "audio": "w-fragen_3.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 4,
+      "english": "where to",
+      "deutsch": "wohin",
+      "sample": "Question : Wohin gehst du? (Where are you going?)",
+      "audio": "w-fragen_4.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 5,
+      "english": "where from",
+      "deutsch": "woher",
+      "sample": "Question : Woher kommst du? (Where do you come from?)",
+      "audio": "w-fragen_5.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 6,
+      "english": "when",
+      "deutsch": "wann",
+      "sample": "Question : Wann beginnt der Film? (When does the movie start?)",
+      "audio": "w-fragen_6.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 7,
+      "english": "why",
+      "deutsch": "warum",
+      "sample": "Question : Warum weinst du? (Why are you crying?)",
+      "audio": "w-fragen_7.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 8,
+      "english": "how",
+      "deutsch": "wie",
+      "sample": "Question : Wie geht es dir? (How are you?)",
+      "audio": "w-fragen_8.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 9,
+      "english": "how much / how many",
+      "deutsch": "wie viel / wie viele",
+      "sample": "Question : Wie viel kostet das? (How much does that cost?)",
+      "audio": "w-fragen_9.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 10,
+      "english": "whom (accusative)",
+      "deutsch": "wen",
+      "sample": "Question : Wen suchst du? (Whom are you looking for?)",
+      "audio": "w-fragen_10.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 11,
+      "english": "whom (dative)",
+      "deutsch": "wem",
+      "sample": "Question : Wem gehört das Buch? (Whom does the book belong to?)",
+      "audio": "w-fragen_11.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 12,
+      "english": "whose",
+      "deutsch": "wessen",
+      "sample": "Question : Wessen Auto ist das? (Whose car is that?)",
+      "audio": "w-fragen_12.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    },
+    {
+      "id": 13,
+      "english": "which",
+      "deutsch": "welcher / welche / welches",
+      "sample": "Question : Welches Buch liest du? (Which book are you reading?)",
+      "audio": "w-fragen_13.mp3",
+      "created_at": "2026-07-03T16:27:51"
+    }
+  ]
+}
