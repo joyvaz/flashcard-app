@@ -10,6 +10,9 @@ NOUNS_DB = os.path.join(DATA_DIR, 'nouns.json')
 VERBS_DB = os.path.join(DATA_DIR, 'verbs.json')
 PREPOSITIONS_DB = os.path.join(DATA_DIR, 'prepositions.json')
 PHRASES_DB = os.path.join(DATA_DIR, 'phrases.json')
+CONNECTOR_DB = os.path.join(DATA_DIR, 'connector.json')
+MODALVERBS_DB = os.path.join(DATA_DIR, 'modalverbs.json')
+WFRAGEN_DB = os.path.join(DATA_DIR, 'wfragen.json')
 AUDIO_DIR = os.path.join(BASE_DIR, 'static', 'audio')
 PROGRESS_DIR = os.path.join(BASE_DIR, 'progress')
 PROGRESS_FILE = os.path.join(PROGRESS_DIR, 'progress.json')
@@ -17,7 +20,7 @@ PROGRESS_FILE = os.path.join(PROGRESS_DIR, 'progress.json')
 
 def load_flashcards(category='verbs'):
     """Load flashcards from JSON file based on category."""
-    db_path = VERBS_DB if category == 'verbs' else NOUNS_DB if category == 'nouns' else PREPOSITIONS_DB if category == 'prepositions' else PHRASES_DB
+    db_path = VERBS_DB if category == 'verbs' else NOUNS_DB if category == 'nouns' else PREPOSITIONS_DB if category == 'prepositions' else PHRASES_DB if category == 'phrases' else CONNECTOR_DB if category == 'connector' else MODALVERBS_DB if category == 'modalverbs' else WFRAGEN_DB
 
     if not os.path.exists(db_path):
         save_flashcards([], category)
@@ -33,7 +36,7 @@ def load_flashcards(category='verbs'):
 
 def save_flashcards(flashcards, category='verbs'):
     """Save flashcards to JSON file based on category."""
-    db_path = VERBS_DB if category == 'verbs' else NOUNS_DB if category == 'nouns' else PREPOSITIONS_DB if category == 'prepositions' else PHRASES_DB
+    db_path = VERBS_DB if category == 'verbs' else NOUNS_DB if category == 'nouns' else PREPOSITIONS_DB if category == 'prepositions' else PHRASES_DB if category == 'phrases' else CONNECTOR_DB if category == 'connector' else MODALVERBS_DB if category == 'modalverbs' else WFRAGEN_DB
 
     os.makedirs(DATA_DIR, exist_ok=True)
 
