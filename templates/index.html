@@ -229,7 +229,7 @@
         gap: 10px;
     }
 
-    .nav-buttons a {
+    .nav-buttons a, .restart-btn {
         padding: 10px 20px;
         background: #667eea;
         color: white;
@@ -241,7 +241,7 @@
         font-size: 1em;
     }
 
-    .nav-buttons a:hover {
+    .nav-buttons a:hover, .restart-btn:hover {
         background: #764ba2;
         transform: translateY(-2px);
     }
@@ -258,6 +258,14 @@
     .nav-buttons .disabled:hover {
         background: #ccc;
         transform: none;
+    }
+
+    .restart-btn {
+        background: #ff6b6b;
+    }
+
+    .restart-btn:hover {
+        background: #ff5252;
     }
 
     .card-actions {
@@ -327,7 +335,8 @@
 
         .nav-buttons a,
         .nav-buttons .disabled,
-        .btn {
+        .btn,
+        .restart-btn {
             flex: 1;
             text-align: center;
         }
@@ -408,6 +417,32 @@
     function navigateToCard(index, category) {
         saveProgress(category, index);
         window.location.href = `/?index=${index}&category=${category}`;
+    }
+
+    function restartProgress(category) {
+        if (confirm('Are you sure you want to restart this category? Your progress will be set to card 1.')) {
+            fetch('/restart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    category: category
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href = `/?category=${category}`;
+                } else {
+                    alert('Error restarting progress. Please try again.');
+                }
+            })
+            .catch(err => {
+                console.error('Error restarting progress:', err);
+                alert('Error restarting progress. Please try again.');
+            });
+        }
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -492,6 +527,8 @@
                         <span class="disabled">Next →</span>
                     {% endif %}
                 </div>
+
+                <button class="restart-btn" onclick="restartProgress('{{ category }}')">🔄 Restart</button>
 
                 <div class="card-actions">
                     <a href="/edit/{{ card.id }}?category={{ category }}" class="btn btn-warning">✏️ Edit</a>
