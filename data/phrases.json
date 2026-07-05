@@ -1,5 +1,292 @@
 {
   "flashcards": [
-    {"id": 1, "english": "Nice to meet you", "deutsch": "freut mich", "sample": "Hello Joy, freut mich!", "audio": "phrase_1.mp3", "created_at": "2026-07-01T12:00:01"}
+    {
+      "id": 1,
+      "english": "Hello / Good day",
+      "deutsch": "Guten Tag",
+      "sample": "Phrase : Guten Tag, wie kann ich Ihnen helfen? (Good day, how can I help you?)",
+      "audio": "phrases_1.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 2,
+      "english": "How are you?",
+      "deutsch": "Wie geht es Ihnen?",
+      "sample": "Phrase : Hallo! Wie geht es Ihnen heute? (Hello! How are you today?) Danke, mir geht es sehr gut. (Thank you, I am doing very well.)",
+      "audio": "phrases_2.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 3,
+      "english": "Good morning",
+      "deutsch": "Guten Morgen",
+      "sample": "Phrase : Guten Morgen, Kaffee steht auf dem Tisch. (Good morning, coffee is on the table.)",
+      "audio": "phrases_3.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 4,
+      "english": "Goodbye",
+      "deutsch": "Auf Wiedersehen",
+      "sample": "Phrase : Vielen Dank und Auf Wiedersehen! (Thank you very much and goodbye!)",
+      "audio": "phrases_4.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 5,
+      "english": "See you later",
+      "deutsch": "Bis später",
+      "sample": "Phrase : Ich muss jetzt gehen, bis später! (I have to go now, see you later!)",
+      "audio": "phrases_5.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 6,
+      "english": "Please / You're welcome",
+      "deutsch": "Bitte sehr",
+      "sample": "Phrase : Ein Bier, bitte. - Bitte sehr! (A beer, please. - Here you go / You're welcome!)",
+      "audio": "phrases_6.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 7,
+      "english": "Thank you very much",
+      "deutsch": "Vielen Dank",
+      "sample": "Phrase : Vielen Dank für Ihre Hilfe und für das leckere Essen. (Thank you very much for your help and for the delicious food.)",
+      "audio": "phrases_7.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 8,
+      "english": "Excuse me / Sorry",
+      "deutsch": "Entschuldigung",
+      "sample": "Phrase : Entschuldigung, wo ist der Bahnhof? (Excuse me, where is the train station?)",
+      "audio": "phrases_8.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 9,
+      "english": "I'm sorry",
+      "deutsch": "Es tut mir leid",
+      "sample": "Phrase : Es tut mir leid, ich habe Ihre Nachricht nicht gesehen. (I'm sorry, I did not see your message.)",
+      "audio": "phrases_9.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 10,
+      "english": "No problem / It's okay",
+      "deutsch": "Kein Problem",
+      "sample": "Phrase : Danke für das Book. - Kein Problem! (Thanks for the book. - No problem!)",
+      "audio": "phrases_10.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 11,
+      "english": "Yes, please",
+      "deutsch": "Ja, bitte",
+      "sample": "Phrase : Möchten Sie noch Kaffee? - Ja, bitte. (Would you like more coffee? - Yes, please.)",
+      "audio": "phrases_11.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 12,
+      "english": "No, thank you",
+      "deutsch": "Nein, danke",
+      "sample": "Phrase : Brauchen Sie Hilfe? - Nein, danke. (Do you need help? - No, thank you.)",
+      "audio": "phrases_12.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 13,
+      "english": "I don't know",
+      "deutsch": "Ich weiß nicht",
+      "sample": "Phrase : Wann kommt der Bus? - Ich weiß nicht. (When is the bus coming? - I don't know.)",
+      "audio": "phrases_13.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 14,
+      "english": "I don't understand",
+      "deutsch": "Ich verstehe das nicht",
+      "sample": "Phrase : Bitte sprechen Sie langsam, ich verstehe das nicht. (Please speak slowly, I don't understand.)",
+      "audio": "phrases_14.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 15,
+      "english": "Everything is fine / okay",
+      "deutsch": "Alles klar",
+      "sample": "Phrase : Wir treffen uns um drei. - Alles klar! (We are meeting at three. - All good / Got it!)",
+      "audio": "phrases_15.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 16,
+      "english": "How much does it cost?",
+      "deutsch": "Wie viel kostet das?",
+      "sample": "Phrase : Entschuldigung, wie viel kostet das Brot? (Excuse me, how much does the bread cost?)",
+      "audio": "phrases_16.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 17,
+      "english": "The check/bill, please",
+      "deutsch": "Die Rechnung, bitte",
+      "sample": "Phrase : Herr Ober, die Rechnung, bitte! (Waiter, the bill, please!)",
+      "audio": "phrases_17.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 18,
+      "english": "Have fun! / Enjoy!",
+      "deutsch": "Viel Spaß!",
+      "sample": "Phrase : Gehen Sie ins Kino? Viel Spaß! (Are you going to the cinema? Have fun!)",
+      "audio": "phrases_18.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 19,
+      "english": "Have a nice day",
+      "deutsch": "Schönen Tag noch",
+      "sample": "Phrase : Auf Wiedersehen, schönen Tag noch! (Goodbye, have a nice day!)",
+      "audio": "phrases_19.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 20,
+      "english": "Cheers! / Bless you!",
+      "deutsch": "Gesundheit!",
+      "sample": "Phrase : *Niest* - Gesundheit! (*Sneezes* - Bless you!)",
+      "audio": "phrases_20.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 21,
+      "english": "Good night",
+      "deutsch": "Gute Nacht",
+      "sample": "Phrase : Ich gehe jetzt ins Bett. Gute Nacht! (I am going to bed now. Good night!)",
+      "audio": "phrases_21.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 22,
+      "english": "Could you repeat that, please?",
+      "deutsch": "Können Sie das bitte wiederholen?",
+      "sample": "Phrase : Ich habe es nicht gehört, können Sie das bitte wiederholen? (I didn't hear it, could you repeat that, please?)",
+      "audio": "phrases_22.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 23,
+      "english": "Do you speak English?",
+      "deutsch": "Sprechen Sie Englisch?",
+      "sample": "Phrase : Entschuldigung, sprechen Sie Englisch? (Excuse me, do you speak English?)",
+      "audio": "phrases_23.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 24,
+      "english": "I am learning German.",
+      "deutsch": "Ich lerne Deutsch.",
+      "sample": "Phrase : Ich wohne in Berlin und ich lerne Deutsch. (I live in Berlin and I am learning German.)",
+      "audio": "phrases_24.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 25,
+      "english": "More slowly, please.",
+      "deutsch": "Langsamer, bitte.",
+      "sample": "Phrase : Sprechen Sie bitte langsamer, bitte. (Please speak more slowly, please.)",
+      "audio": "phrases_25.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 26,
+      "english": "I would like...",
+      "deutsch": "Ich hätte gern ...",
+      "sample": "Phrase : Ich hätte gern ein Stück Kuchen. (I would like a piece of cake.)",
+      "audio": "phrases_26.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 27,
+      "english": "Where is the cinema?",
+      "deutsch": "Wo ist das Kino?",
+      "sample": "Phrase : Entschuldigung, wissen Sie, wo das Kino ist? (Excuse me, do you know where the cinema is?)",
+      "audio": "phrases_27.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 28,
+      "english": "One moment, please.",
+      "deutsch": "Einen Moment, bitte.",
+      "sample": "Phrase : Einen Moment, bitte, ich komme gleich. (One moment, please, I'll be right there.)",
+      "audio": "phrases_28.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 29,
+      "english": "Yes.",
+      "deutsch": "Ja.",
+      "sample": "Phrase : Kommen Sie mit? - Ja. (Are you coming along? - Yes.)",
+      "audio": "phrases_29.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 30,
+      "english": "No.",
+      "deutsch": "Nein.",
+      "sample": "Phrase : Haben Sie Hunger? - Nein. (Are you hungry? - No.)",
+      "audio": "phrases_30.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 31,
+      "english": "Okay.",
+      "deutsch": "Okay.",
+      "sample": "Phrase : Wir treffen uns um fünf. - Okay. (We're meeting at five. - Okay.)",
+      "audio": "phrases_31.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 32,
+      "english": "Exactly.",
+      "deutsch": "Genau.",
+      "sample": "Phrase : Sie meinen also morgen? - Genau. (So you mean tomorrow? - Exactly.)",
+      "audio": "phrases_32.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 33,
+      "english": "Of course.",
+      "deutsch": "Natürlich.",
+      "sample": "Phrase : Helfen Sie mir? - Natürlich! (Will you help me? - Of course!)",
+      "audio": "phrases_33.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 34,
+      "english": "Maybe.",
+      "deutsch": "Vielleicht.",
+      "sample": "Phrase : Kommen Sie morgen? - Vielleicht, ich weiß noch nicht. (Are you coming tomorrow? - Maybe, I don't know yet.)",
+      "audio": "phrases_34.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 35,
+      "english": "Really?",
+      "deutsch": "Wirklich?",
+      "sample": "Phrase : Ich habe im Lotto gewonnen! - Wirklich? (I won the lottery! - Really?)",
+      "audio": "phrases_35.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    },
+    {
+      "id": 36,
+      "english": "Great!",
+      "deutsch": "Super!",
+      "sample": "Phrase : Ich habe die Prüfung bestanden. - Super! (I passed the exam. - Great!)",
+      "audio": "phrases_36.mp3",
+      "created_at": "2026-07-05T11:51:04"
+    }
   ]
 }
