@@ -57,6 +57,21 @@ def set_progress():
         return jsonify({'status': 'error', 'message': str(exc)}), 500
 
 
+@bp.route('/restart', methods=['POST'])
+def restart():
+    """Restart progress for a category (set to 0)."""
+    try:
+        data = request.json
+        category = data.get('category', 'verbs')
+
+        set_user_progress(category, 0)
+
+        return jsonify({'status': 'success'})
+    except Exception as exc:
+        print(f"Error restarting progress: {exc}")
+        return jsonify({'status': 'error', 'message': str(exc)}), 500
+
+
 @bp.route('/audio/<category>/<int:card_id>')
 def get_audio(category, card_id):
     """Get or generate audio for a flashcard."""
